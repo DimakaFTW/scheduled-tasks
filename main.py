@@ -6,6 +6,8 @@ import os
 
 MY_EMAIL = os.environ.get("MY_EMAIL")
 PASSWORD = os.environ.get("PASSWORD")
+print(MY_EMAIL)
+print(PASSWORD)
 
 birthdays = pandas.read_csv("birthdays.csv")
 
