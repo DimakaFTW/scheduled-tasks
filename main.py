@@ -4,10 +4,8 @@ import datetime as dt
 import smtplib
 import os
 
-# my_email = "dimo.sotirov93@gmail.com"
-# password = "eugutmjzwbpjwfoi"
-my_email = os.environ.get("MY_EMAIL")
-password = os.environ.get("MY_PASSWORD")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+PASSWORD = os.environ.get("MY_PASSWORD")
 
 birthdays = pandas.read_csv("birthdays.csv")
 
@@ -24,8 +22,8 @@ if day_month in birthdays_dict:
 
     with smtplib.SMTP("smtp.gmail.com", 587, timeout=120) as connection:
         connection.starttls()
-        connection.login(user=my_email, password=password)
-        connection.sendmail(from_addr=my_email,
+        connection.login(user=MY_EMAIL, password=PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
                             to_addrs=birthdays_dict[day_month]["email"],
                             msg=f"Subject:Happy Birthday\n\n{personal_letter}")
 
